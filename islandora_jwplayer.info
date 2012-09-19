@@ -1,4 +1,6 @@
 name = Islandora JW Player
-description = A plugin to help the JW Player play islandora content
+description = "A plugin to help the JW Player play islandora content"
+dependencies[] = islandora_audio
 core = 7.x
 version = 7.x-dev
+package = Islandora
