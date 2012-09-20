@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ */
+
+/**
+ * Implements hook_islandora_audio_player().
+ */
+function islandora_jwplayer_islandora_audio_player_alter(&$javascript, $params) {
+  global $base_url;
+
+  $javascript = "<div id=\"mediaplayer\">Loading jw player...</div>";
+  $jwpath = libraries_get_path("jwplayer", TRUE);
+  drupal_add_js($jwpath . "/jwplayer.js");
+
+  $mypath = drupal_get_path("module", "islandora_jwplayer");
+  drupal_add_js(array("islandora_jwplayer" => array(
+      "url" => $params["url"],
+      "mimetype" => $params["mime"],
+      "thumbnail" => $params["tn"],
+      "jwpath" => $jwpath
+  )),
+  'setting');
+  drupal_add_js($base_url . "/" . $mypath . "/js/player.js");
+}
