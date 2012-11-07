@@ -8,5 +8,4 @@ jQuery(document).ready(function() {
     image: Drupal.settings.islandora_jwplayer.thumbnail,
     controlbar: "bottom"
   });
-
 });
