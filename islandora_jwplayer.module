@@ -1,7 +1,9 @@
 <?php
-
 /**
  * @file
+ *
+ * @todo
+ *   try and get libraries dependency working.
  */
 
 /**
@@ -11,9 +13,9 @@ function islandora_jwplayer_islandora_viewer_info() {
   return array(
     'islandora_jwplayer' => array(
       'label' => t('JW Player'),
-      'description' => t('JW Player for audio.'),
+      'description' => t('JW Player for audio and video.'),
       'callback' => 'islandora_jwplayer_callback',
-      'mimetype' => array('audio/mpeg'),
+      'mimetype' => array('audio/mpeg', 'video/mp4'),
     ),
   );
 }
@@ -25,22 +27,26 @@ function islandora_jwplayer_islandora_viewer_info() {
  *   Array with configuration info for the audio player
  */
 function islandora_jwplayer_callback($params = array()) {
-  global $base_url;
 
-  // This should be a theme function
+  // This should be a theme function.
   $output = "<div id=\"mediaplayer\">Loading jw player...</div>";
-  $jwpath = libraries_get_path("jwplayer", TRUE);
+  $jwpath = libraries_get_path("jwplayer");
   drupal_add_js($jwpath . "/jwplayer.js");
+  // We have to hack a file name into the URL because jwplayer removed support
+  // for specifieing mimetype.
+  $mime_detect = new MimeDetect();
+  $extension = $mime_detect->getExtension($params["mime"]);
 
-  $mypath = drupal_get_path("module", "islandora_jwplayer");
-  drupal_add_js(array("islandora_jwplayer" => array(
-      "url" => $params["url"],
+  drupal_add_js(array(
+    "islandora_jwplayer" => array(
+      "url" => $params["url"] . '/file_name_spoof.' . $extension,
       "mimetype" => $params["mime"],
       "thumbnail" => $params["tn"],
-      "jwpath" => $jwpath
-  )),
+    )),
   'setting');
-  drupal_add_js($base_url . "/" . $mypath . "/js/player.js");
+
+  $mypath = drupal_get_path("module", "islandora_jwplayer");
+  drupal_add_js($mypath . "/js/player.js", array('preprocess' => FALSE));
+
   return $output;
 }
-
