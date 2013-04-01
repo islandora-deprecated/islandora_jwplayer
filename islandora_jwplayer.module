@@ -29,11 +29,11 @@ function islandora_jwplayer_islandora_viewer_info() {
 function islandora_jwplayer_callback($params = array()) {
 
   // This should be a theme function.
-  $output = "<div id=\"mediaplayer\">Loading jw player...</div>";
+  $output = "<div id=\"mediaplayer\">Loading JW Player...</div>";
   $jwpath = libraries_get_path("jwplayer");
   drupal_add_js($jwpath . "/jwplayer.js");
   // We have to hack a file name into the URL because jwplayer removed support
-  // for specifieing mimetype.
+  // for specifying mimetype.
   $mime_detect = new MimeDetect();
   $extension = $mime_detect->getExtension($params["mime"]);
 
