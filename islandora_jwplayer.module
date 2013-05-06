@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- *
+ * @description An Islandora viewer module using jwplayer.
  * @todo
  *   try and get libraries dependency working.
  */
@@ -21,7 +21,7 @@ function islandora_jwplayer_islandora_viewer_info() {
 }
 
 /**
- * Callback function to process audio player
+ * Callback function to process audio player.
  *
  * @param array $params
  *   Array with configuration info for the audio player
