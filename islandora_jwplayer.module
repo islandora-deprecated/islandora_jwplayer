@@ -1,9 +1,10 @@
 <?php
 /**
  * @file
- * @description An Islandora viewer module using jwplayer.
+ * An Islandora viewer module using jwplayer.
+ *
  * @todo
- *   try and get libraries dependency working.
+ *   Try and get libraries dependency working.
  */
 
 /**
