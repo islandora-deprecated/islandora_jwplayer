@@ -1,6 +1,7 @@
 <?php
 /**
  * @file
+ * Hook implementations for the JWPlayer module.
  *
  * @todo
  *   try and get libraries dependency working.
@@ -21,32 +22,36 @@ function islandora_jwplayer_islandora_viewer_info() {
 }
 
 /**
- * Callback function to process audio player
+ * Callback function to process audio player.
  *
  * @param array $params
- *   Array with configuration info for the audio player
+ *   Array with configuration info for the audio player.
  */
 function islandora_jwplayer_callback($params = array()) {
+  // @todo Make it such that a default thumbnail can be used, if one is not
+  // provided in the parameters.
+  $required = array('url', 'mime', 'tn');
+  if (count(array_intersect($required, array_keys($params))) === count($required)) {
+    // This should be a theme function.
+    $output = "<div id=\"mediaplayer\">Loading JW Player...</div>";
+    $jwpath = libraries_get_path("jwplayer");
+    drupal_add_js($jwpath . "/jwplayer.js");
+    // We have to hack a file name into the URL because jwplayer removed support
+    // for specifying mimetype.
+    $mime_detect = new MimeDetect();
+    $extension = $mime_detect->getExtension($params["mime"]);
 
-  // This should be a theme function.
-  $output = "<div id=\"mediaplayer\">Loading JW Player...</div>";
-  $jwpath = libraries_get_path("jwplayer");
-  drupal_add_js($jwpath . "/jwplayer.js");
-  // We have to hack a file name into the URL because jwplayer removed support
-  // for specifying mimetype.
-  $mime_detect = new MimeDetect();
-  $extension = $mime_detect->getExtension($params["mime"]);
+    drupal_add_js(array(
+      "islandora_jwplayer" => array(
+        "url" => $params["url"] . '/file_name_spoof.' . $extension,
+        "mimetype" => $params["mime"],
+        "thumbnail" => $params["tn"],
+      )),
+    'setting');
 
-  drupal_add_js(array(
-    "islandora_jwplayer" => array(
-      "url" => $params["url"] . '/file_name_spoof.' . $extension,
-      "mimetype" => $params["mime"],
-      "thumbnail" => $params["tn"],
-    )),
-  'setting');
+    $mypath = drupal_get_path("module", "islandora_jwplayer");
+    drupal_add_js($mypath . "/js/player.js", array('preprocess' => FALSE));
 
-  $mypath = drupal_get_path("module", "islandora_jwplayer");
-  drupal_add_js($mypath . "/js/player.js", array('preprocess' => FALSE));
-
-  return $output;
+    return $output;
+  }
 }
