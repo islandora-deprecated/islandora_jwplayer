@@ -1,10 +1,10 @@
 <?php
 /**
  * @file
- * Hook implementations for the JWPlayer module.
+ * An Islandora viewer module using jwplayer.
  *
  * @todo
- *   try and get libraries dependency working.
+ *   Try and get libraries dependency working.
  */
 
 /**
