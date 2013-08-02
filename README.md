@@ -6,7 +6,7 @@ Current build status:
 CI Server:
 http://jenkins.discoverygarden.ca
 
-ISLANDORA IP EMBARGO
+ISLANDORA IP JWPLAYER
 ==================
 
 CONTENTS OF THIS FILE
