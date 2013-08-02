@@ -1,3 +1,14 @@
+BUILD STATUS
+------------
+Current build status:
+[![Build Status](https://travis-ci.org/Islandora/islandora_jwplayer.png?branch=7.x)](https://travis-ci.org/Islandora/islandora_jwplayer)
+
+CI Server:
+http://jenkins.discoverygarden.ca
+
+ISLANDORA JWPLAYER
+==================
+
 CONTENTS OF THIS FILE
 ---------------------
 
