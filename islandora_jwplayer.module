@@ -53,7 +53,7 @@ function islandora_jwplayer_callback($params = array()) {
     $height = isset($params['height']) ? $params['height'] : '270';
     $player_params = array(
       "thumbnail" => $params["tn"],
-      "file" => $base_url . $params["url"] . '/file_name_spoof.' . $extension,
+      "file" => $params["url"] . '/file_name_spoof.' . $extension,
       "width" => $width,
       "height" => $height,
     );
