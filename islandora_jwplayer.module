@@ -31,7 +31,6 @@ function islandora_jwplayer_islandora_viewer_info() {
  *   The marked up output to render JW Player.
  */
 function islandora_jwplayer_callback($params = array()) {
-  global $base_url;
   // @TODO: Make it such that a default thumbnail can be used, if one is not
   // provided in the parameters.
   $required = array('url', 'mime', 'tn');
