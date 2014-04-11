@@ -37,12 +37,20 @@ function islandora_jwplayer_callback($params = array()) {
   if (count(array_intersect($required, array_keys($params))) === count($required)) {
     // This should be a theme function.
     $output = "<div id=\"mediaplayer\">Loading JW Player...</div>";
+
     $jwpath = libraries_get_path("jwplayer");
-    drupal_add_js($jwpath . "/jwplayer.js");
+    drupal_add_js($jwpath . "/jwplayer.js", array(
+      // XXX: Can not be allowed to be aggregated, as underlying library code
+      // tries to access other resources relative to the path from which this
+      // is loaded.
+      'preprocess' => FALSE,
+    ));
+
     // We have to hack a file name into the URL because jwplayer removed support
     // for specifying mimetype.
     $mime_detect = new MimeDetect();
     $extension = $mime_detect->getExtension($params["mime"]);
+
     // Using "default" is no longer valid in JW Player 6, we will default to
     // the height and width given in the support docs.
     // @TODO: JW Player 6 supports responsive widths and heights, potentially
