@@ -4,7 +4,7 @@
 
 A Islandora viewer module using [JW Player](http://www.jwplayer.com/).
 
-**NOTE**: JW Player is free for non comercial use.
+**NOTE**: JW Player is free for non commercial use.
 
 ## Requirements
 
@@ -19,7 +19,7 @@ This module requires the following modules/libraries:
 
 Install as usual, see [this](https://drupal.org/documentation/install/modules-themes/modules-7) for further information.
 
-Install the JW Player available [here](http://www.longtailvideo.com/jw-player/download/) to your `sites/libraries` folder, or run `drush jwplayer-plugin`.  This viewer has been tested with [jwplayer6](http://www.longtailvideo.com/download/jwplayer-free-6-1-2972.zip).
+Install the JW Player available [here](http://www.longtailvideo.com/jw-player/download/) to your `sites/all/libraries` folder, or run `drush jwplayer-plugin`.  This viewer has been tested with [jwplayer6](http://www.longtailvideo.com/download/jwplayer-free-6-1-2972.zip).
 
 Note: If you use the Drush command, it is advisable to Move (not copy) the install script to your `.drush` folder and run it."
 
@@ -29,7 +29,7 @@ This module has been updated to use jwplayer6. If you are updating this module f
 
 ## Configuration
 
-Select JW Player as a viewer in Administration » Islandora » Video Solution Pack (admin/islandora/video) and/or Administration » Islandora » Audio Collection (admin/islandora/audio).
+Select JW Player as a viewer in Administration » Islandora » Solution Pack Configuration » Video Solution Pack (admin/islandora/solution_pack_config/video) and/or Administration » Islandora » Solution Pack Configuration » Audio Solution Pack (admin/islandora/solution_pack_config/audio).
 
 ## Troubleshooting/Issues
 
