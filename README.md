@@ -13,19 +13,17 @@ This module requires the following modules/libraries:
 * [Islandora](https://github.com/islandora/islandora)
 * [Tuque](https://github.com/islandora/tuque)
 * [Libraries API](https://drupal.org/project/libraries)
-* [JW Player](www.longtailvideo.com/download/jwplayer-free-6-1-2972.zip)
+* [JW Player version 6](https://github.com/jwplayer/jwplayer/releases/tag/v6.12.0)
 
 ## Installation
 
 Install as usual, see [this](https://drupal.org/documentation/install/modules-themes/modules-7) for further information.
 
-Install the JW Player available [here](http://www.longtailvideo.com/jw-player/download/) to your `sites/all/libraries` folder.
-
-Note: You must register for an account with JWPlayer to download the library.
+Install the JW Player available [here](https://github.com/jwplayer/jwplayer/releases/tag/v6.12.0) to your `sites/all/libraries` folder.  Build instructions are available on JWPlayer's [README](https://github.com/jwplayer/jwplayer#build-instructions).
 
 ### Notes
 
-This module has been updated to use jwplayer6. If you are updating this module for the first time since 22/01/2013 with an install predating that date your library will need to be updated.
+You must have previously registered for an account with JWPlayer when version 6 was being offered to legally use the library.  Registering now only licenses you to use version 7 as per JWPlayer's [terms of service](https://www.jwplayer.com/tos/).  If you are a new user looking to display video content, please use the [Islandora Video.js](https://github.com/Islandora/islandora_videojs) module.
 
 ## Configuration
 
