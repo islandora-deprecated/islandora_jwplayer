@@ -48,3 +48,5 @@ script:
   - $ISLANDORA_DIR/tests/scripts/line_endings.sh sites/all/modules/islandora_jwplayer
   - drush coder-review --reviews=production,security,style,i18n,potx,sniffer islandora_jwplayer
   - phpcpd --names *.module,*.inc,*.test sites/all/modules/islandora_jwplayer
+notifications:
+  irc: "irc.freenode.org#islandora"
